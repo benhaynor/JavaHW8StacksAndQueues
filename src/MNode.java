@@ -3,17 +3,22 @@ public class MNode<E>{
 	private E data;
 	private MNode<E> next;
 	
+	public MNode(E data){
+		this.data = data;
+		next = null;
+	}
+
+	public MNode(E data, MNode<E> next){
+		this.data = data;
+		this.next = next;
+	}
+	
 	public E getData() {
 		return data;
 	}
 
 	public void setData(E data) {
 		this.data = data;
-	}
-
-	public MNode(E data){
-		this.data = data;
-		next = null;
 	}
 	
 	public void setNext(MNode<E> next){
@@ -23,11 +28,8 @@ public class MNode<E>{
 	public MNode<E> getNext(){
 		return next;
 	}
-	
-	public void print(){
-		System.out.println(data);
-		if (next != null){
-			next.print();
-		}
+
+	public String toString(){
+		return data.toString();
 	}
 }

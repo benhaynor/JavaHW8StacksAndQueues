@@ -42,19 +42,26 @@ public class MLinkedList<E>{
 		} else{
 			MNode<E> pre = getNode(index-1);
 			MNode<E> post = getNode(index);
-			MNode<E> toInsert = new MNode(e);
+			MNode<E> toInsert = new MNode<E>(e);
 			pre.setNext(toInsert);
 			toInsert.setNext(post);
 			size ++;
 		}
 	}
 	
-	public void print(){
+	public String toString(){
+		StringBuilder stringRep = new StringBuilder("[");
 		MNode<E> cur = first;
 		for (int i = 0; i < size; i ++){
-			System.out.println(cur.getData());
+			stringRep.append(cur.toString());
+			stringRep.append(",");
 			cur = cur.getNext();
 		}
+		if (stringRep.length() > 1)
+			stringRep.setCharAt(stringRep.length() -1,']');
+		else
+			stringRep.append("]");
+		return stringRep.toString();
 	}
 	
 	public E get(int index){

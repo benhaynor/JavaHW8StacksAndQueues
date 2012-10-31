@@ -30,14 +30,4 @@ public class MNode<E>{
 			next.print();
 		}
 	}
-	
-	public static void main(String[] args){
-		MNode<String> first
-			= new MNode<String>("susannah");
-		first.setNext(new MNode<String>("Osborn"));
-		first.getNext().setNext(new MNode<String>("Linda"));
-		first.getNext().getNext()
-			.setNext(new MNode<String>("Adelaide"));
-		first.print();
-	}
 }

@@ -1,36 +1,17 @@
 
 public class MLinkedList<E>{
 
-	/*
-	 * TODO: Implement the add methods 
-	 * void add(E e, index i); 
-	 * void addFirst(E e); //
-	 * void addLast(E e);
-	 * TODO: Implement the get methods
-	 * E get(index i);
-	 * E getFirst;
-	 * E getLast;
-	 * TODO: Implement the remove methods
-	 * E remove(index i);
-	 * E removeFirst();
-	 * E removeLast(); 
-	 * TODO: Implement the following constructors
-	 * MLinkedList(); //Creates an empty linked list.
-	 * MLinkedList(E e) //Creates a linked list with one elment.
-	 * Optional: 
-	 * Implement the following helper methods.  Note: depending on how you
-	 * choose to implement add, and remove, these may not be necessary:
-	 * private void addOnly(E); Adds the only element
-	 * private void removeOnly(E);  Removes the last node
-	 * private Node<E> getNode(index i); //Returns the node at index i; 
-	 */
-	
 	private MNode<E> first;
 	private int size;
 	
 	public MLinkedList(E e){
 		first = new MNode<E>(e);
 		size = 1;
+	}
+
+	public MLinkedList(){
+		first = null;
+		size = 0;
 	}
 	
 	private MNode<E> getNode(int index){
@@ -44,8 +25,7 @@ public class MLinkedList<E>{
 	}
 	
 	public void addLast(E e){
-		MNode<E> last = getNode(size -1);
-		last.setNext(new MNode<E>(e));
+		getNode(size -1).setNext(new MNode<E>(e));
 		size ++;
 	}
 	
@@ -53,12 +33,20 @@ public class MLinkedList<E>{
 		//Note: this currently does not work for adding at index 0.
 		if (index < 0 || index > size)
 			throw new IndexOutOfBoundsException();
-		MNode<E> pre = getNode(index-1);
-		MNode<E> post = getNode(index);
-		MNode<E> toInsert = new MNode(e);
+		if (index == 0){
+			System.out.println("Adding at zero not yet handled");
+			System.exit(1);
+		} else if (index == (size)){
+			System.out.println("Adding to end of list not yet handled");
+			System.exit(1);
+		} else{
+			MNode<E> pre = getNode(index-1);
+			MNode<E> post = getNode(index);
+			MNode<E> toInsert = new MNode(e);
 			pre.setNext(toInsert);
-		toInsert.setNext(post);
-		size ++;
+			toInsert.setNext(post);
+			size ++;
+		}
 	}
 	
 	public void print(){
@@ -69,14 +57,7 @@ public class MLinkedList<E>{
 		}
 	}
 	
-	public static void main(String[] args){
-		MLinkedList<String> eits 
-			= new MLinkedList<String>("Susannah");
-		eits.addLast("Osborn");
-		eits.addLast("Linda");
-		eits.addLast("Adelaide");
-		eits.add(2,"SamG");
-		eits.print();
-		
+	public E get(int index){
+		return getNode(index).getData();
 	}
 }

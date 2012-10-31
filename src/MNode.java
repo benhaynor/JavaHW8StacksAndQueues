@@ -40,9 +40,4 @@ public class MNode<E>{
 			.setNext(new MNode<String>("Adelaide"));
 		first.print();
 	}
-	//Suppose	Suzaanah is an MNode
-	//How do I get access to Osborn?
-	//public static 
-	//I just added another comment
-	//I just added a third comment
 }

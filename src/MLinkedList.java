@@ -22,7 +22,7 @@ public class MLinkedList<E>{
 	 * choose to implement add, and remove, these may not be necessary:
 	 * private void addOnly(E); Adds the only element
 	 * private void removeOnly(E);  Removes the last node
-	 * private Node<E> getNode(index i); //Returns the node at index i;
+	 * private Node<E> getNode(index i); //Returns the node at index i; 
 	 */
 	
 	private MNode<E> first;
